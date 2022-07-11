@@ -44,19 +44,25 @@
         </div>
     </section>
     <script>
-        const DDD = document.querySelector('.box .ddetail');
+        const ROLLING_BOX = document.querySelector('.box .ddetail');
         window.addEventListener('scroll', function () {
             let sct = window.scrollY;
-            console.log(sct, DDD);
-            DDD.style.transform = 'rotate(' + sct / 2 + 'deg)';
+            ROLLING_BOX.style.transform = 'rotate(' + sct / 2 + 'deg)';
         });
 
         function 회전문자(word) {
-            const words = [...word];
-            const wwords = words.map(el => '<span>' + el + '</span>');
-            const ddtext = wwords.join(''); //배열을 문자열로 반환... 
-            DDD.innerHTML = ddtext; // 문자열을 html로 삽입...
-            const SPAN = document.querySelectorAll('.box .ddetail span');
+            const words = [...word].map(el => '<span>' + el + '</span>').join('');
+            // ... 스프레드 연산자로 문자를 배열로 반환하고 map배열 헬프 함수로 새배열 반환한 후 배열을 문자열로 반환... 
+            ROLLING_BOX.innerHTML = words; // 문자열을 html로 삽입...
+            console.log(...ROLLING_BOX.children) // children --> html collection 
+            //HTMLCollection
+            //HTMLCollection은 문서 내에 순서대로 정렬된 노드의 컬렉션으로, 유사 배열입니다. 
+            //HTMLCollection을 얻을 수 있는 간단한 방법은 HTML 엘리먼트의 children 프로퍼티에 접근하는 것입니다.
+
+            //NodeList
+            //element.childNodes 프로퍼티나 document.querySelectorAll 메서드로 반환되는 노드의 모음입니다. 
+            //NodeList도 유사 배열인데, forEach 메서드는 가지고 있습니다. 하지만 map, filter 등의 메서드를 사용하려면 위에서 언급한 방법을 이용해 배열로 바꿔주어야 합니다.
+            const SPAN = [...ROLLING_BOX.children]; // html collection을 배열로 반환해서 forEach함수 사용...
             SPAN.forEach((el, idx) => {
                 SPAN[idx].style.transform = 'translateX(-50%) rotate(' + idx * (360 / SPAN.length) + 'deg)'
             })
