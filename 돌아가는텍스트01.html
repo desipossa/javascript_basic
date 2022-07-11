@@ -64,7 +64,7 @@
             //NodeList도 유사 배열인데, forEach 메서드는 가지고 있습니다. 하지만 map, filter 등의 메서드를 사용하려면 위에서 언급한 방법을 이용해 배열로 바꿔주어야 합니다.
             const SPAN = [...ROLLING_BOX.children]; // html collection을 배열로 반환해서 forEach함수 사용...
             SPAN.forEach((el, idx) => {
-                SPAN[idx].style.transform = 'translateX(-50%) rotate(' + idx * (360 / SPAN.length) + 'deg)'
+                el.style.transform = 'translateX(-50%) rotate(' + idx * (360 / SPAN.length) + 'deg)'
             })
         }
         회전문자('mynameisbaboo');
