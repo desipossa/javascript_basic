@@ -18,15 +18,16 @@
             width: 100%;
         }
 
-        .section.on {
-            color: #f00;
-        }
-
-        .section>h2 {
+        .section h2 {
             display: table-cell;
             vertical-align: middle;
             width: 100%;
             text-align: center;
+        }
+
+        .section.on h2 {
+            transition: 0.5s;
+            color: #f00;
         }
 
         .section:nth-child(odd) {
@@ -54,7 +55,7 @@
         </section>
     </div>
 
-    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.12.4.js"></script> -->
     <script>
         // $('.section').each(function (idx) {
         //     var _this = $(this);
@@ -65,12 +66,12 @@
         //     })
         // })
         window.addEventListener('DOMContentLoaded', () => {
-            const SEC = document.querySelectorAll('.section');
-            SEC.forEach(function (el, idx, arry) {
-                //console.log(el, idx)
-                window.addEventListener('scroll', function () {
-                    console.log(this, window.scrollY, arry[idx].offsetTop);
-                    if (arry[idx].offsetTop > window.scrollY) arry[idx].classList.add('on')
+            const EACH_SECTION = document.querySelectorAll('.section');
+            EACH_SECTION.forEach(el => {
+                window.addEventListener('scroll', () => {
+                    let sct = window.scrollY;
+                    sct > el.offsetTop - 200 ? el.classList.add('on') : el.classList.remove('on');
+                    sct === 0 && el.classList.remove('on');
                 })
             })
         })
