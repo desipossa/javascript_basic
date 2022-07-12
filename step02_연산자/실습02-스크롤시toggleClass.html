@@ -56,25 +56,24 @@
 
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
     <script>
-        $('.section').each(function (idx) {
-            var _this = $(this);
-            var _thisTop = _this.offset().top;
-            $(window).on('scroll', function () {
-                var sct = $(window).scrollTop();
-                sct > (_thisTop - 200) ? _this.addClass('on') : _this.removeClass('on')
-            })
-        })
-        // window.addEventListener('DOMContentLoaded', () => {
-        //     const SEC = document.querySelectorAll('.section');
-        //     SEC.forEach(function (el, idx) {
-        //         //console.log(el, idx)
-        //         window.addEventListener('scroll', function () {
-        //             console.log(this, window.scrollY, el.offsetTop);
-        //             el.classList.add('on')
-        //         })
-
+        // $('.section').each(function (idx) {
+        //     var _this = $(this);
+        //     var _thisTop = _this.offset().top;
+        //     $(window).on('scroll', function () {
+        //         var sct = $(window).scrollTop();
+        //         sct > (_thisTop - 200) ? _this.addClass('on') : _this.removeClass('on')
         //     })
         // })
+        window.addEventListener('DOMContentLoaded', () => {
+            const SEC = document.querySelectorAll('.section');
+            SEC.forEach(function (el, idx, arry) {
+                //console.log(el, idx)
+                window.addEventListener('scroll', function () {
+                    console.log(this, window.scrollY, arry[idx].offsetTop);
+                    if (arry[idx].offsetTop > window.scrollY) arry[idx].classList.add('on')
+                })
+            })
+        })
     </script>
 </body>
 
