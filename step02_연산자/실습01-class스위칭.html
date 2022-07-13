@@ -20,7 +20,7 @@
         let a = true;
         // 아이디는 자체 이름만으로 선택 가능하지만 추천하는 방식이 아님...
         // toggle class 구현. 사실 classList.toggle 로 쉽게할 수 있음.
-        // classList.add , classList.remove, classList.toggle , classList.contain 
+        // classList.add , classList.remove, classList.toggle , classList.contain (hasClass()) 
         btn.onclick = function () {
             a
                 ? this.previousElementSibling.classList.add('on')
