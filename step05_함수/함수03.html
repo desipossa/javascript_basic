@@ -29,7 +29,7 @@
         //     console.log('leechanghun')
         // }
 
-        // $('#App').on('click', function(){
+        //$('#App').on('click', function(){
         //$(this).addClass('on')
         //$(this).index();
         //})
@@ -40,7 +40,7 @@
             //this.style.color = "#f00";
         });
 
-        // 이벤트의 위임... 나ㄷ중에 배울거임...
+        // 이벤트의 위임... 나 중에 배울거임...
 
         UL.addEventListener('click', e => {
             // 이벤트의 위임... 이 이밴트를 받고 있는 거는 UL임.
@@ -48,7 +48,10 @@
 
             // 스프래드 연산자 어려운 거고 나중에 배울 것들... ECMA6
             const AllLI = [...UL.children];
-            console.log(AllLI);
+            // 번호 받아오기
+            let idx = AllLI.indexOf(TG);
+            console.log(idx)
+            console.log(AllLI); // click한 것의 번호를 받아옴... 텝메뉴에 쓰일 거임.
             AllLI.forEach(e => e.style.color = '')
             TG.style.color = "#f00"
         })
