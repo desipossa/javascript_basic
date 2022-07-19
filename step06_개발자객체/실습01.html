@@ -11,7 +11,7 @@
 <body>
     <input name='content' id='BTN'>
     <button onclick="changeInput()">click</button>
-    <ul id="text"></ul>
+    <ul id="TXT"></ul>
 
     <script>
         // input 테그에 담겨있는 값을 가져와서 html로 추가하기...
@@ -19,7 +19,7 @@
         const changeInput = () => {
             BTN.onchange = function (e) {
                 const { name, value } = e.target;
-                text.innerHTML += '<li>' + value;
+                TXT.innerHTML += '<li>' + value;
             }
         }
 
