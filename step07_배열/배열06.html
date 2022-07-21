@@ -32,7 +32,7 @@
                     LIST = RESULT.map(data => `<li>${data.content} <button>삭제</button></li>`);
                     UL.innerHTML = LIST.join('');
                     BTN = document.querySelectorAll('#UL button');
-                    console.log(UL, BTN)
+                    console.log(UL, BTN) //여기서 이 버튼은 다시 클릭할 수 없다. ????
                 })
             })
 
