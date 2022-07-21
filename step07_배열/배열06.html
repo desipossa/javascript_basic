@@ -28,15 +28,14 @@
             let BTN = document.querySelectorAll('#UL button');
             BTN.forEach((el, idx) => {
                 el.addEventListener('click', (e) => {
-                    console.log(idx);
-                    e.preventDefault();
                     RESULT = DATA.filter(el => el.id !== idx + 1);
                     LIST = RESULT.map(data => `<li>${data.content} <button>삭제</button></li>`);
                     UL.innerHTML = LIST.join('');
-                    let BTN = document.querySelectorAll('#UL button');
-                    console.log(RESULT, BTN)
+                    BTN = document.querySelectorAll('#UL button');
+                    console.log(UL, BTN)
                 })
             })
+
         })
 
     </script>
