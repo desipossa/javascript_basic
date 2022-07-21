@@ -28,9 +28,11 @@
             let BTN = document.querySelectorAll('#UL button');
             BTN.forEach((el, idx) => {
                 el.addEventListener('click', (e) => {
+                    let tg = e.currentTarget.parentNode;
+                    console.log(tg)
                     RESULT = DATA.filter(el => el.id !== idx + 1);
                     LIST = RESULT.map(data => `<li>${data.content} <button>삭제</button></li>`);
-                    UL.innerHTML = LIST.join('');
+                    UL.innerHTML = LIST.join(''); // 다시 그려준 HTML
                     BTN = document.querySelectorAll('#UL button');
                     console.log(UL, BTN) //여기서 이 버튼은 다시 클릭할 수 없다. ????
                 })
