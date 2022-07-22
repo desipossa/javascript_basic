@@ -58,7 +58,10 @@
             lotto.push(lottoNum);
         }
 
-
+        //오름차순으로 숫자 정렬 ... 
+        lotto.sort(function (a, b) {
+            return a - b;
+        });
         console.log(lotto);
 
 
