@@ -9,9 +9,7 @@
 </head>
 
 <body>
-    <ul class="txt">
-
-    </ul>
+    <ul class="txt"></ul>
     <button class="push">주기</button>
     <button class="pull">받기</button>
     <script>
@@ -29,15 +27,17 @@
         document.querySelector('.pull').addEventListener('click', () => {
             const REDATA = JSON.parse(localStorage.getItem('data'))
             console.log(REDATA);
-            const HTM = REDATA.map(el => {
-                return '<li>' + el.name + '</li>'
-            }).join('');
-
-            document.querySelector('.txt').innerHTML = HTM;
-
-
-
         });
+
+        const REDATA = JSON.parse(localStorage.getItem('data')) || []
+
+        const HTM = REDATA.map(el => {
+            return '<li>' + el.name + '</li>'
+        }).join('')
+
+        document.querySelector('.txt').innerHTML = HTM;
+
+
 
 
 
