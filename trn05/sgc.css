@@ -1,4 +1,58 @@
-.Gnb {
+body {
+    letter-spacing: -0.025em;
+}
+
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    line-height: 100px;
+    z-index: 999;
+}
+
+.Header.on {
+    top: -100px;
+}
+
+.Header .Gnb ul {
+    display: flex;
+    gap: 40px;
+    font-size: 18px;
+}
+
+.mainVisual {
+    background: url(./assets/images/main.png) no-repeat fixed center center/cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navBar {
     position: fixed;
     top: 50%;
     right: 50px;
@@ -6,11 +60,11 @@
     z-index: 999;
 }
 
-.Gnb li {
+.navBar li {
     width: 50px;
 }
 
-.Gnb li a {
+.navBar li a {
     position: relative;
     display: block;
     font-size: 0;
@@ -18,7 +72,7 @@
 }
 
 
-.Gnb li a::after {
+.navBar li a::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -29,7 +83,7 @@
     transition: 0.5s;
 }
 
-.Gnb li.on a::after {
+.navBar li.on a::after {
     width: 100%;
 }
 
@@ -41,31 +95,59 @@
     white-space: nowrap;
 }
 
-.section .txt {
-    text-align: center;
-    font-size: 100px;
-    transform: scale(1);
+.allOpen {
+    position: relative;
+    display: block;
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.allOpen button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.allOpen::before,
+.allOpen::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    height: 4px;
+    background: #fff;
+}
+
+.allOpen::before {
+    top: 7px;
+}
+
+.allOpen::after {
+    bottom: 7px;
+}
+
+.allOpen button::before,
+.allOpen button::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    height: 4px;
+    background: #fff;
+    top: calc(50% - 2px);
+}
+
+.allOpen.on::before,
+.allOpen.on::after {
     opacity: 0;
 }
 
-.section.on .txt {
-    text-align: center;
-    font-size: 100px;
-    transform: scale(2);
-    opacity: 1;
-    transition: 0.5s;
+.allOpen.on button::before {
+    transform: rotate(45deg);
 }
 
-.page03 {
-    background: url(./assets/images/lesedilarona01.jpg) no-repeat fixed center center/cover;
-}
-
-.page04 {
-    filter: grayscale(1);
-    background: url(./assets/images/lesedilarona01.jpg) no-repeat fixed center center/cover;
-}
-
-.Footer {
-    background: #333;
-    padding: 100px 0;
+.allOpen.on button::after {
+    transform: rotate(-45deg);
 }
