@@ -41,9 +41,11 @@ $(function () {
 
     $('.allOpen').on('click', function () {
         $(this).toggleClass('on');
-        $('.cover').slideToggle();
+        $('.cover').toggleClass('on');
     })
 
-
+    $('.cover').on('wheel', function (event) {
+        event.preventDefault()
+    })
 
 })
