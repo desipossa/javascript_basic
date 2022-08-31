@@ -20,9 +20,30 @@ $(function () {
     });
 
 
+
+
     $('.basicSlider').slick({
         arrows: false,
+        autoplay: true,
+        //pauseOnHover: true,
         asNavFor: '.basicSlider',
     });
+
+
+    $('.productSlider .slide_menu li').on('click', function () {
+        var idx = $(this).index();
+        $('.basicSlider').slick('slickGoTo', idx)
+    });
+
+    $('.basicSlider').on('afterChange', function (e, s, c) {
+        $('.productSlider .slide_menu li').eq(c).addClass('on').siblings().removeClass('on')
+    });
+
+    $('.allOpen').on('click', function () {
+        $(this).toggleClass('on');
+        $('.cover').slideToggle();
+    })
+
+
 
 })
